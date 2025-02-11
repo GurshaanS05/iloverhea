@@ -1,0 +1,127 @@
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #fff0f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.heart {
+  position: absolute;
+  font-size: 2rem;
+  user-select: none;
+  animation: fallDown 5s linear infinite;
+}
+
+.bouquetContainer {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 200px;
+  height: 200px;
+}
+
+.flower {
+  font-size: 2rem;
+  user-select: none;
+  animation: bloom 2s ease-out forwards;
+  margin: 0 5px;
+}
+
+.content {
+  text-align: center;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.content.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #ff1493;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.yesButton, .noButton {
+  padding: 0.75rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.yesButton {
+  background-color: #ff69b4;
+  color: white;
+}
+
+.noButton {
+  background-color: #f8bbd0;
+  color: #ff1493;
+}
+
+.yesButton:hover, .noButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.answer {
+  font-size: 2rem;
+  color: #ff1493;
+  font-weight: bold;
+}
+
+@keyframes fallDown {
+  0% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes bloom {
+  0% {
+    transform: translateY(50px) scale(0.5);
+  }
+  50% {
+    content: '🌱';
+  }
+  75% {
+    content: '🌷';
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    content: '💐';
+    transform: translateY(0) scale(1);
+  }
+}
+
